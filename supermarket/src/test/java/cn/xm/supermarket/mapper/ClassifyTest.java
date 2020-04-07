@@ -8,18 +8,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import cn.xm.supermarket.entity.Classify;
 import cn.xm.supermarket.entity.Merchandise;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class MerchandiseTest {
+public class ClassifyTest {
 	@Autowired
-	ClasifyMapper mapper;
+	ClassifyMapper mapper;
 	@Test
 	public void findByCidMerchandise() {
-		List<Merchandise> list= mapper.findByCidMerchandise(1);
-		for (Merchandise merchandise : list) {
-			System.err.println(merchandise);
+		List<Classify> list= mapper.findByParent(10);
+		for (Classify c : list) {
+			System.err.println(c);
 		}
 	}
 
