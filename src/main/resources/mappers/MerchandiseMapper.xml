@@ -3,5 +3,57 @@
  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 <mapper namespace="cn.xm.supermarket.mapper.MerchandiseMapper">
 
+	<resultMap type="cn.xm.supermarket.entity.Merchandise" id="result">
+		<id column="mid" property="mid"/>
+		<result column="cost_price" property="costPrice"/>
+		<result column="is_putaway" property="isPutaway"/>
+		<result column="add_time" property="addTime"/>
+		<result column="launch_time" property="launchTime"/>
+		<result column="soldout_time" property="soldoutTime"/>
+		<result column="created_user" property="createdUser"/>
+		<result column="created_time" property="createdTime"/>
+		<result column="modified_user" property="modifiedUser"/>
+		<result column="modified_time" property="modifiedTime"/>
+	</resultMap>
+
+	<!-- 添加商品信息 -->
+	<!-- Integer insertOne(Merchandise merchandise); -->
+	<insert id="insertOne" useGeneratedKeys="true" keyProperty="mid">
+		INSERT INTO merchandise(
+			mname,image,price,
+			cost_price,num,
+			cid,datail,
+			is_putaway,add_time,
+			launch_time,soldout_time,
+			created_user,created_time,
+			modified_user,modified_time
+		)VALUES(
+			#{mname},#{image},#{price},
+			#{costPrice},#{num},
+			#{cid},#{datail},
+			#{isPutaway},#{addTime},
+			#{launchTime},#{soldoutTime},
+			#{createdUser},#{createdTime},
+			#{modifiedUser},#{modifiedTime}
+			)
+	</insert>
+	
+	<!-- 根据id修改num -->
+	<!-- Integer updateNumByMid(Integer mid,Integer num); -->
+	<update id="updateNumByMid">
+		UPDATE 
+			merchandise 
+		SET 
+			num=#{num},
+			modified_user=#{modifiedUser},modified_time=#{modifiedTime} 
+		WHERE 
+			mid=#{mid}
+	</update>
+	
+	<!-- 通过商品名查找商品信息 -->
+	<!-- Merchandise findByMname(String mname); -->
+	<select id="findByMname" resultMap="result">
+		select * from merchandise where mname=#{mname}
+	</select>
 
 </mapper>

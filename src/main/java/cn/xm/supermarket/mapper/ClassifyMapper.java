@@ -11,4 +11,5 @@ public interface ClassifyMapper {
 	 * @return 所有一级分类
 	 */
    List<Classify> findByParent(Integer parent);
+   
 }

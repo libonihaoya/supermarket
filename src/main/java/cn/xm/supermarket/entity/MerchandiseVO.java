@@ -2,12 +2,8 @@ package cn.xm.supermarket.entity;
 
 import java.util.Date;
 
-public class Merchandise extends BaseEntity{
+public class MerchandiseVO{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1244386681498369348L;
 	
 	private Integer mid;  //商品表id 主键自增
 	private String mname; //商品名
@@ -19,7 +15,7 @@ public class Merchandise extends BaseEntity{
 	private String datail; //商品描述
 	private Integer isPutaway;  //是否上架  0上架/1下架
 	private Date addTime ; //入库时间
-	private Date launchTime; //上架时间
+	private Date lunchTime; //上架时间
 	private Date soldoutTime; //下架时间
 	/**
 	 * @return the mid
@@ -142,16 +138,16 @@ public class Merchandise extends BaseEntity{
 		this.addTime = addTime;
 	}
 	/**
-	 * @return the launchTime
+	 * @return the lunchTime
 	 */
-	public Date getLaunchTime() {
-		return launchTime;
+	public Date getLunchTime() {
+		return lunchTime;
 	}
 	/**
-	 * @param launchTime the launchTime to set
+	 * @param lunchTime the lunchTime to set
 	 */
-	public void setLaunchTime(Date launchTime) {
-		this.launchTime = launchTime;
+	public void setLunchTime(Date lunchTime) {
+		this.lunchTime = lunchTime;
 	}
 	/**
 	 * @return the soldoutTime
@@ -169,7 +165,7 @@ public class Merchandise extends BaseEntity{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((mid == null) ? 0 : mid.hashCode());
+		result = prime * result + ((cid == null) ? 0 : cid.hashCode());
 		return result;
 	}
 	@Override
@@ -180,11 +176,11 @@ public class Merchandise extends BaseEntity{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Merchandise other = (Merchandise) obj;
-		if (mid == null) {
-			if (other.mid != null)
+		MerchandiseVO other = (MerchandiseVO) obj;
+		if (cid == null) {
+			if (other.cid != null)
 				return false;
-		} else if (!mid.equals(other.mid))
+		} else if (!cid.equals(other.cid))
 			return false;
 		return true;
 	}
@@ -192,8 +188,8 @@ public class Merchandise extends BaseEntity{
 	public String toString() {
 		return "Merchandise [mid=" + mid + ", mname=" + mname + ", image=" + image + ", price=" + price + ", costPrice="
 				+ costPrice + ", num=" + num + ", cid=" + cid + ", datail=" + datail + ", isPutaway=" + isPutaway
-				+ ", addTime=" + addTime + ", launchTime=" + launchTime + ", soldoutTime=" + soldoutTime
-				+ ", toString()=" + super.toString() + "]";
+				+ ", addTime=" + addTime + ", lunchTime=" + lunchTime + ", soldoutTime=" + soldoutTime + ", toString()="
+				+ super.toString() + "]";
 	}
 	
 	
