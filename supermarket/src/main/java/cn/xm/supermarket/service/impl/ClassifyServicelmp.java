@@ -14,12 +14,8 @@ public class ClassifyServicelmp implements ClassifyService {
 	@Autowired
 	private ClassifyMapper mapper;
 	@Override
-	public List<Classify> getByParent(Integer parent) {
-		List<Classify> result=mapper.findByParent(parent);
-		for (Classify classify : result) {
-			classify.setCid(null);
-			classify.setCode(null);
-		}
+	public List<Classify> getBySort(Integer sort) {
+		List<Classify> result=mapper.findBySort(sort);
 		return result;
 	}
 

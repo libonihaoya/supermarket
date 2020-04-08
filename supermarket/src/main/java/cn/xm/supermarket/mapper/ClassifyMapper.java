@@ -6,9 +6,9 @@ import cn.xm.supermarket.entity.Classify;
 
 public interface ClassifyMapper {
 	/**
-	 * 按分类查询商品
-	 * @param 一级分类的id
-	 * @return 所有一级分类
+	 * 按分类查询
+	 * @param sort 一级/二级分类的id
+	 * @return 该分类的所有类别
 	 */
-   List<Classify> findByParent(Integer parent);
+   List<Classify> findBySort(Integer sort);
 }
