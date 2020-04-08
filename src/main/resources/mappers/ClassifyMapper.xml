@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="cn.xm.supermarket.mapper.ClassifyMapper">
+<!-- /**
+	 * 按分类查询商品
+	 * @param 一级分类的id
+	 * @return 所有一级分类
+	 */
+   List<Classify> findByParent(Integer parent) -->
+	<select id="findByParent" resultType="cn.xm.supermarket.entity.Classify">
+		SELECT
+		*
+		FROM
+		classify
+		WHERE
+		parent=#{parent}
+	</select>
+
+</mapper>
