@@ -32,9 +32,10 @@ public class MerchandiseServicelmp implements MerchandiseService {
 		String mname = merchandise.getMname();
 		Merchandise result = merchandiseMapper.findByMname(mname);
 		//判断是否含有相同名字的商品
-		if (result != null) {
+		if (result != null && result.getCostPrice() == merchandise.getCostPrice()) {
 			//--如果有的话在原有商品上修改数量并补全数据modifiedUser,modifiedTime即可
 			//--从结果中取出id,num
+			//TODO 还需要改上架或下架，以及售价
 			Integer mid = result.getMid();
 			Integer num = result.getNum()+merchandise.getNum();
 			String modifiedUser = username;
