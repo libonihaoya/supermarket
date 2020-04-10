@@ -7,10 +7,12 @@ public class Classify implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -4644406872917745563L;
-	Integer cid ;//分类id 主键自增
-	Integer parent; 
-	Integer code; 
-	String cname;
+	
+	private Integer cid ;//分类id 主键自增
+	private Integer parent; 
+	private Integer code; 
+	private String cname;
+	
 	public Integer getCid() {
 		return cid;
 	}

@@ -4,14 +4,18 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class BaseEntity implements Serializable {
+	
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -7284510354156509516L;
-	String createdUser; //创建人
-	Date createdTime; //创建时间
-	String modifiedUser;// 最后修改人
-	Date modifiedTime; //最后修改时间
+	private static final long serialVersionUID = 2831158652964040797L;
+	
+	private String createdUser; //创建人
+	private Date createdTime; //创建时间
+	private String modifiedUser;// 最后修改人
+	private Date modifiedTime; //最后修改时间
+	
 	public String getCreatedUser() {
 		return createdUser;
 	}
