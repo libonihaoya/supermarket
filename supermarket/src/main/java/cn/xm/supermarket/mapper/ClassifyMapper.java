@@ -10,6 +10,6 @@ public interface ClassifyMapper {
 	 * @param 一级分类的id
 	 * @return 所有一级分类
 	 */
-   List<Classify> findByParent(Integer parent);
+   List<Classify> findBySort(Integer sort);
    
 }

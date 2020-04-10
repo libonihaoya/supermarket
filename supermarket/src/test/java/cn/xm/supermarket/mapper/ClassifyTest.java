@@ -9,7 +9,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import cn.xm.supermarket.entity.Classify;
-import cn.xm.supermarket.entity.Merchandise;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -18,7 +17,7 @@ public class ClassifyTest {
 	ClassifyMapper mapper;
 	@Test
 	public void findByCidMerchandise() {
-		List<Classify> list= mapper.findByParent(10);
+		List<Classify> list= mapper.findBySort(10);
 		for (Classify c : list) {
 			System.err.println(c);
 		}

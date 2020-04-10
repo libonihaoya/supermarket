@@ -15,7 +15,7 @@ public class ClassifyServicelmp implements ClassifyService {
 	private ClassifyMapper mapper;
 	@Override
 	public List<Classify> getByParent(Integer parent) {
-		List<Classify> result=mapper.findByParent(parent);
+		List<Classify> result=mapper.findBySort(parent);
 		for (Classify classify : result) {
 			classify.setCid(null);
 			classify.setCode(null);

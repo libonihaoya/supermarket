@@ -31,6 +31,7 @@ public class JsonResult<T> {
 		this.state = state;
 		this.data = data;
 	}
+	
 
 	/**
 	 * @return the state
@@ -53,8 +54,8 @@ public class JsonResult<T> {
 	/**
 	 * @param message the message to set
 	 */
-	public void setMessage(String message) {
-		this.message = message;
+	public void setMessage(Throwable e) {
+		this.message = e.getMessage();
 	}
 	/**
 	 * @return the data

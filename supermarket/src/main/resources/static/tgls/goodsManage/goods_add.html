@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
@@ -15,7 +14,7 @@
 	<meta name="description" content="网站简介" />
 	<!-- 网站简介 -->
 	<meta name="keywords" content="搜索关键字，以半角英文逗号隔开" />
-	<title>穷在闹市出品</title>
+	<title>超市</title>
 
 	<!-- 公共样式 开始 -->
 	<link rel="stylesheet" type="text/css" href="../../css/base.css">
@@ -41,13 +40,16 @@
 		.layui-form{
 			margin-right: 30%;
 		}
+		#img-mer{
+			width: 150px;
+		}
 	</style>
 
 </head>
 
 <body>
 <div class="cBody">
-	<form id="addForm" class="layui-form" action="">
+	<form id="addForm" method="post" enctype="multipart/form-data" class="layui-form" action="/Merchandises/add">
 		<div class="layui-form-item">
 			<label class="layui-form-label">商品名称</label>
 			<div class="layui-input-block">
@@ -56,9 +58,11 @@
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">商品图片</label>
-			<div class="layui-upload-drag" id="goodsPic">
-				<i class="layui-icon"></i>
-				<p>点击上传，或将文件拖拽到此处</p>
+			<div class="col-md-4">
+				<img id="img-mer" src="" class="img-responsive" />
+			</div>
+			<div class="layui-input-block col-md-4">
+				<input id="file-selector" type="file" name="file" multiple="multiple">
 			</div>
 		</div>
 		<div class="layui-form-item">
@@ -103,8 +107,8 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">状态</label>
 			<div class="layui-input-block">
-				<input type="radio" name="isPutaway" value="1" title="上架">
-				<input type="radio" name="isPutaway" value="0" title="下架" checked>
+				<input type="radio" name="isPutaway" value="1" title="上架" checked>
+				<input type="radio" name="isPutaway" value="0" title="下架">
 			</div>
 		</div>
 
@@ -121,7 +125,9 @@
 		$("#btn-add").click(function () {
 			$.ajax({
 				"url":"/Merchandises/add",
-				"data" : $("#addForm").serialize(),
+				"data" : new FormData($("#addForm")[0]),
+				"contentType" : false,
+				"processData" : false,
 				"type":"post",
 				"dataType":"json",
 				"success":function (result) {
@@ -133,6 +139,25 @@
 				}
 			});
 		});
+
+
+		$('#file-selector').change(function(){
+			let $file = $(this);
+			let fileObj = $file[0];
+			let windowURL = window.URL || window.webkitURL;
+			let dataURL;
+			let $img = $("#img-mer");
+			if (fileObj && fileObj.files && fileObj.files[0]) {
+				dataURL = windowURL.createObjectURL(fileObj.files[0]);
+				$img.attr('src', dataURL);
+			} else {
+				dataURL = $file.val();
+				var imgObj = document.getElementById("preview");
+				imgObj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+				imgObj.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = dataURL;
+			}
+		});
+
 		layui.use(['upload','form'], function() {
 			var form = layui.form;
 			var upload = layui.upload;
