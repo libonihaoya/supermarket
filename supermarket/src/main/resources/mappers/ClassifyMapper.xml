@@ -2,19 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 <mapper namespace="cn.xm.supermarket.mapper.ClassifyMapper">
-<!-- /**
-	 * 按分类查询商品
-	 * @param 一级分类的id
-	 * @return 所有一级分类
+<!--/**
+	 * 按分类查询
+	 * @param sort 一级/二级分类的id
+	 * @return 该分类的所有类别
 	 */
-   List<Classify> findByParent(Integer parent) -->
-	<select id="findByParent" resultType="cn.xm.supermarket.entity.Classify">
+   List<Classify> findBySort(Integer sort) -->
+	<select id="findBySort" resultType="cn.xm.supermarket.entity.Classify">
 		SELECT
 		*
 		FROM
 		classify
 		WHERE
-		parent=#{parent}
+		parent=#{sort}
 	</select>
-
 </mapper>
