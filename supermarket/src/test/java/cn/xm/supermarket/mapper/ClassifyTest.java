@@ -16,7 +16,6 @@ public class ClassifyTest {
 	@Autowired
 	ClassifyMapper mapper;
 	@Test
-
 	public void findBySort() {
 		List<Classify> list= mapper.findBySort(11);
 		for (Classify c : list) {

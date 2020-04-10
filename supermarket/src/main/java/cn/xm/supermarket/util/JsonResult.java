@@ -1,4 +1,3 @@
-
 package cn.xm.supermarket.util;
 
 /**

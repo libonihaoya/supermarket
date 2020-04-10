@@ -1,4 +1,3 @@
-
 package cn.xm.supermarket.mapper;
 
 import java.util.List;
