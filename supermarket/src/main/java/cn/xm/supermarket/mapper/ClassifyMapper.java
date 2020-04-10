@@ -1,3 +1,4 @@
+
 package cn.xm.supermarket.mapper;
 
 import java.util.List;
@@ -13,3 +14,4 @@ public interface ClassifyMapper {
    List<Classify> findBySort(Integer sort);
    
 }
+

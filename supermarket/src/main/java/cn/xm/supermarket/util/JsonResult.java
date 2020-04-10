@@ -1,3 +1,4 @@
+
 package cn.xm.supermarket.util;
 
 /**
@@ -70,6 +71,6 @@ public class JsonResult<T> {
 		this.data = data;
 	}
 	
-	
-	
+		
 }
+
