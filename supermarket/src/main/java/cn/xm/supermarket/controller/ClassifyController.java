@@ -2,13 +2,9 @@ package cn.xm.supermarket.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import cn.xm.supermarket.entity.Classify;
@@ -23,7 +19,7 @@ public class ClassifyController extends BaseController {
 	@RequestMapping("classifys")
 	public JsonResult<List<Classify>> findBySort(Integer sort){
 	   List<Classify> data=	service.getBySort(sort);
-		return new JsonResult<>(OK,data);	
+		return new JsonResult<List<Classify>>(2000, data);	
 	}
 	
 

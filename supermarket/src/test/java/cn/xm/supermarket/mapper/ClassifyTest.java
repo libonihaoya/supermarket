@@ -9,7 +9,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import cn.xm.supermarket.entity.Classify;
-import cn.xm.supermarket.entity.Merchandise;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
